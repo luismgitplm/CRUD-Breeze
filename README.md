@@ -17,7 +17,6 @@ Este proyecto es un **CRUD (Create, Read, Update, Delete) de productos** desarro
   - Fabricante (máx. 30 caracteres)
   - Fecha de llegada
   - Disponible (booleano)
-- Interfaz moderna y responsive usando Tailwind CSS.
 - Formularios con validación y mensajes de error.
 - Autenticación de usuarios con Laravel Breeze.
 
