@@ -1,61 +1,84 @@
 <x-app-layout>
-    
-    <x-slot name="header">
-        <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            Productos
-        </h2>
-    </x-slot>
 
-    
     <div class="py-12">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-            <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg p-6">
-                
-                
-                <div class="mb-4">
-                    <a href="{{ route('productos.create') }}" class="inline-block px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700">
-                        Create producto
+            <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg p-6 space-y-6">
+
+                {{-- Título centrado y botón a la derecha --}}
+                <div class="flex items-center justify-between mb-4">
+                    {{-- Espacio invisible para balancear el botón --}}
+                    <div class="w-[150px]"></div> {{-- Ajusta el ancho según el botón --}}
+
+                    <h2 class="text-2xl sm:text-3xl font-bold text-gray-800 text-center flex-1">
+                        Listado de productos
+                    </h2>
+
+                    {{-- Botón de añadir producto --}}
+                    <a href="{{ route('productos.create') }}"
+                       class="inline-flex items-center px-4 py-2 bg-blue-600 text-white rounded-md
+                              hover:bg-blue-700 transition text-sm sm:text-base">
+                        + Añadir producto
                     </a>
                 </div>
 
-                
                 @if ($productos->count())
-                    <table class="min-w-full border border-gray-200">
-                        <thead>
-                            <tr class="bg-gray-100">
-                                <th class="px-4 py-2 border">Código</th>
-                                <th class="px-4 py-2 border">Nombre</th>
-                                <th class="px-4 py-2 border">Fabricante</th>
-                                <th class="px-4 py-2 border">Fecha de llegada</th>
-                                <th class="px-4 py-2 border">Disponible</th>
-                                <th class="px-4 py-2 border">Acción</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            @foreach ($productos as $producto)
+                    <div class="overflow-x-auto">
+                        <table class="min-w-full border border-gray-200 text-sm">
+                            <thead class="bg-gray-100 text-gray-700">
                                 <tr>
-                                    <td class="px-4 py-2 border">{{ $producto->codigo }}</td>
-                                    <td class="px-4 py-2 border">{{ $producto->nombre }}</td>
-                                    <td class="px-4 py-2 border">{{ $producto->fabricante }}</td>
-                                    <td class="px-4 py-2 border">{{ $producto->fecha_llegada }}</td>
-                                    <td class="px-4 py-2 border">{{ $producto->disponible }}</td>
-                                    <td class="px-4 py-2 border">
-                                        <a href="{{ route('productos.edit', $producto->id) }}" class="inline-block px-2 py-1 bg-yellow-400 text-white rounded hover:bg-yellow-500 text-sm">Edit</a>
-                                        <form action="{{ route('productos.destroy', $producto->id) }}" method="POST" class="inline-block">
-                                            @csrf
-                                            @method('DELETE')
-                                            <button type="submit" class="inline-block px-2 py-1 bg-red-600 text-white rounded hover:bg-red-700 text-sm">Delete</button>
-                                        </form>
-                                    </td>
+                                    <th class="px-4 py-2 border">Código</th>
+                                    <th class="px-4 py-2 border">Nombre</th>
+                                    <th class="px-4 py-2 border">Fabricante</th>
+                                    <th class="px-4 py-2 border">Fecha de llegada</th>
+                                    <th class="px-4 py-2 border">Disponible</th>
+                                    <th class="px-4 py-2 border text-center">Acciones</th>
                                 </tr>
-                            @endforeach
-                        </tbody>
-                    </table>
+                            </thead>
+                            <tbody>
+                                @foreach ($productos as $producto)
+                                    <tr class="hover:bg-gray-50 text-center">
+                                        <td class="px-4 py-2 border">{{ $producto->codigo }}</td>
+                                        <td class="px-4 py-2 border">{{ $producto->nombre }}</td>
+                                        <td class="px-4 py-2 border">{{ $producto->fabricante }}</td>
+                                        <td class="px-4 py-2 border">
+                                            {{ \Carbon\Carbon::parse($producto->fecha_llegada)->format('d/m/Y') }}
+                                        </td>
+                                        <td class="px-4 py-2 border">
+                                            {{ $producto->disponible ? 'Sí' : 'No' }}
+                                        </td>
+                                        <td class="px-4 py-2 border text-center space-x-1">
+                                            <a href="{{ route('productos.edit', $producto->id) }}"
+                                               class="inline-block px-3 py-1 bg-yellow-400 text-white rounded
+                                                      hover:bg-yellow-500 text-xs transition">
+                                                Editar
+                                            </a>
+
+                                            <form action="{{ route('productos.destroy', $producto->id) }}"
+                                                  method="POST" class="inline-block">
+                                                @csrf
+                                                @method('DELETE')
+                                                <button type="submit"
+                                                        class="px-3 py-1 bg-red-600 text-white rounded
+                                                               hover:bg-red-700 text-xs transition"
+                                                        onclick="return confirm('¿Seguro que deseas eliminar este producto?')">
+                                                    Eliminar
+                                                </button>
+                                            </form>
+                                        </td>
+                                    </tr>
+                                @endforeach
+                            </tbody>
+                        </table>
+                    </div>
                 @else
-                    <p>No hay productos disponibles.</p>
+                    <p class="text-center text-gray-500">
+                        No hay productos disponibles.
+                    </p>
                 @endif
 
             </div>
         </div>
     </div>
+
 </x-app-layout>
+
