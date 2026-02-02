@@ -1,0 +1,15 @@
+models:
+  Producto:
+    codigo: string:3
+    nombre: string:30
+    fabricante: string:30
+    fecha_llegada: date
+    disponible: boolean
+
+controllers:
+  ProductoController:
+    resource: true
+
+routes:
+  web:
+    resource: productos

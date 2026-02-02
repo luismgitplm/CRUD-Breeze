@@ -1,0 +1,10 @@
+created:
+    - app/Http/Controllers/ProductoController.php
+    - database/factories/ProductoFactory.php
+    - database/migrations/2026_02_02_133023_create_productos_table.php
+    - app/Models/Producto.php
+    - tests/Feature/Http/Controllers/ProductoControllerTest.php
+updated:
+    - routes/web.php
+models:
+    Producto: { codigo: 'string:3', nombre: 'string:30', fabricante: 'string:30', fecha_llegada: date, disponible: boolean }
