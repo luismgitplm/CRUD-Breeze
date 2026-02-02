@@ -1,24 +1,24 @@
 <x-app-layout>
-    <!-- Encabezado de la página -->
+    
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
             Productos
         </h2>
     </x-slot>
 
-    <!-- Contenido principal -->
+    
     <div class="py-12">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg p-6">
                 
-                <!-- Botón Crear producto -->
+                
                 <div class="mb-4">
                     <a href="{{ route('productos.create') }}" class="inline-block px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700">
                         Create producto
                     </a>
                 </div>
 
-                <!-- Tabla de productos -->
+                
                 @if ($productos->count())
                     <table class="min-w-full border border-gray-200">
                         <thead>
