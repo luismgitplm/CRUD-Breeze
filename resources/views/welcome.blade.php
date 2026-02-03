@@ -9,12 +9,12 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
 
     <style>
-        /* Fondo general: degradado grisáceo */
+        
         body {
             background: linear-gradient(135deg, #f5f5f5, #e2e2e2);
         }
 
-        /* Contenedor principal */
+        
         .main-card {
             max-width: 1000px;
             width: 100%;
@@ -22,41 +22,41 @@
             overflow: hidden;
         }
 
-        /* Panel izquierdo: gris medio */
+        
         .left-panel {
-            background: #d1d5db; /* gris claro-medio */
+            background: #d1d5db; 
         }
 
-        /* Panel derecho: gris muy claro */
+        
         .right-panel {
-            background: #f3f4f6; /* gris muy claro */
+            background: #f3f4f6; 
         }
 
-        /* Título */
+        
         .title {
             font-weight: 800;
             letter-spacing: 0.03em;
-            color: #1f2937; /* gris oscuro */
+            color: #1f2937; 
             text-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
         }
 
-        /* Línea decorativa debajo del título */
+        
         .title-line {
             width: 80px;
             height: 4px;
-            background: #9ca3af; /* gris medio */
+            background: #9ca3af; 
             margin: 16px auto 0;
             border-radius: 999px;
         }
 
-        /* Subtítulo opcional */
+        
         .subtitle {
-            color: #4b5563; /* gris más oscuro */
+            color: #4b5563; 
         }
 
-        /* Botones personalizados */
+        
         .btn-info {
-            background-color: #6b7280; /* gris medio-oscuro */
+            background-color: #6b7280; 
             border-color: #6b7280;
         }
 
