@@ -59,6 +59,7 @@
 
                     {{-- Disponible --}}
                     <div class="flex items-center space-x-2">
+                        <input type="hidden" name="disponible" value="0">
                         <input type="checkbox" name="disponible" id="disponible" value="1"
                                class="h-4 w-4 text-blue-600 border-gray-300 rounded"
                                {{ old('disponible') ? 'checked' : '' }}>

@@ -25,7 +25,7 @@ class ProductoController extends Controller
             'nombre' => 'required|string|max:30',
             'fabricante' => 'required|string|max:30',
             'fecha_llegada' => 'required|date',
-            'disponible' => 'required|boolean',
+            'disponible' => 'boolean',
 
         ]);
 
@@ -45,7 +45,7 @@ class ProductoController extends Controller
             'nombre' => 'required|string|max:30',
             'fabricante' => 'required|string|max:30',
             'fecha_llegada' => 'required|date',
-            'disponible' => 'required|boolean',
+            'disponible' => 'boolean',
 
         ]);
 
